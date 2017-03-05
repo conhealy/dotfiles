@@ -16,7 +16,9 @@ call vundle#begin()
 " " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Valloric/YouCompleteMe'
+" No longer using YouCompleteMe because it doesn't play so nicely on OSX
+" Will switch back to using jedi vim for now
+" Plugin 'Valloric/YouCompleteMe'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -126,6 +128,16 @@ filetype plugin indent on    " required
  set background=dark
  colorscheme solarized 
 
+ " lines below to undo weird stuff with vim on mac
+ let g:solarized_termcolors= 16
+ let g:solarized_termtrans = 16
+ let g:solarized_bold = 1
+ let g:solarized_underline = 1 
+ let g:solarized_italic = 1
+ let g:solarized_contrast = "high"
+ let g:solarized_visibility= "high"
+
+
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -219,31 +231,31 @@ let g:syntastic_check_on_wq = 0
 " Settings for jedi-vim
 " cd ~/.vim/bundle
 " git clone git://github.com/davidhalter/jedi-vim.git
-"" let g:jedi#usages_command = "<leader>z"
-"" let g:jedi#popup_on_dot = 0
-"" let g:jedi#popup_select_first = 0
-"" filetype plugin on
-"" set omnifunc=jedi#completions
-""  map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+ let g:jedi#usages_command = "<leader>z"
+ let g:jedi#popup_on_dot = 0
+ let g:jedi#popup_select_first = 0
+ filetype plugin on
+ set omnifunc=jedi#completions
+  map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
   " CH - Below creates shorthands for autocomplete commands
   " none of the commands seem to work
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
-"" set completeopt=longest,menuone
-"" function! OmniPopup(action)
-""     if pumvisible()
-""         if a:action == 'j'
-""             return "\<C-N>"
-""         elseif a:action == 'k'
-""             return "\<C-P>"
-""         endif
-""     endif
-""     return a:action
-"" endfunction
+ set completeopt=longest,menuone
+ function! OmniPopup(action)
+     if pumvisible()
+         if a:action == 'j'
+             return "\<C-N>"
+         elseif a:action == 'k'
+             return "\<C-P>"
+         endif
+     endif
+     return a:action
+ endfunction
 
-"" inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
-"" inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+ inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
+ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 
  " keys f and F to fold code
