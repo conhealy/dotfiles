@@ -34,20 +34,16 @@ if [ ! -d "$HOME/.vim/bundle/ctrlp.vim" ]; then
   git clone https://github.com/kien/ctrlp.vim.git
 fi
 
-if [ ! -d "$HOME/.vim/bundle/syntastic" ]; then
-  echo "Cloning syntastic"
-  git clone https://github.com/scrooloose/syntastic.git
-fi
-
 if [ ! -d "$HOME/.vim/bundle/vim-colors-solarized" ]; then
   echo "Cloning vim solarized"
   git clone git://github.com/altercation/vim-colors-solarized.git
 fi
 
-if [ ! -d "$HOME/.vim/bundle/YouCompleteMe" ]; then
-  echo "Cloning YouCompleteMe"
-  git clone https://github.com/Valloric/YouCompleteMe
+if [ ! -d "$HOME/.vim/bundle/vim-colors-solarized" ]; then
+  echo "Cloning jedi vim"
+  git clone git://github.com/davidhalter/jedi-vim.git
 fi
+
 
 cd ~
 
